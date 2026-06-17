@@ -1,0 +1,37 @@
+body {
+  font-family: Arial;
+  background: #0b1020;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.container {
+  padding: 40px;
+}
+
+h1, h2 {
+  color: #00ffcc;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  background: #1e2a55;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.btn.vip {
+  background: #ff2d55;
+}
+
+.card {
+  background: #1a1f3a;
+  padding: 15px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 10px;
+}
