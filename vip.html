@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VIP College Score</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>🔒 VIP College Score</h2>
+
+  <div id="locked">
+    <p>This section is locked. Pay to unlock correct score predictions.</p>
+
+    <button class="btn vip" onclick="payWithPaystack()">
+      💳 Unlock VIP (Pay Now)
+    </button>
+  </div>
+
+  <div id="unlocked" style="display:none;">
+    <div class="card">
+      <p>Correct Score 1: 2 - 1</p>
+    </div>
+
+    <div class="card">
+      <p>Correct Score 2: 1 - 0</p>
+    </div>
+  </div>
+
+  <a class="btn" href="index.html">⬅ Back Home</a>
+</div>
+
+<script>
+  // Check VIP status
+  if(localStorage.getItem("vip") === "true"){
+    document.getElementById("locked").style.display = "none";
+    document.getElementById("unlocked").style.display = "block";
+  }
+
+  // Paystack payment
+  function payWithPaystack(){
+    let handler = PaystackPop.setup({
+      key: 'YOUR_PAYSTACK_PUBLIC_KEY_HERE', // 🔴 REPLACE THIS
+      email: 'user@example.com',
+      amount: 2000 * 100, // ₵20.00 (change if you want)
+      currency: "GHS",
+
+      callback: function(response){
+        alert("Payment successful!");
+        localStorage.setItem("vip", "true");
+        location.reload();
+      },
+
+      onClose: function(){
+        alert("Payment cancelled");
+      }
+    });
+
+    handler.openIframe();
+  }
+</script>
+
+</body>
+</html>
