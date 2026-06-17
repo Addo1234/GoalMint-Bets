@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⏰ Digital Clock</h1>
+            <p class="subtitle">Multiple Time Zones</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-add" onclick="openAddTimezone()">+ Add Time Zone</button>
+            <button class="btn btn-reset" onclick="resetToDefault()">Reset Default</button>
+        </div>
+
+        <!-- Add Timezone Modal -->
+        <div id="addTimezoneModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeAddTimezone()">&times;</span>
+                <h2>Add Time Zone</h2>
+                <select id="timezoneSelect" class="timezone-select">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <button class="btn btn-confirm" onclick="addTimezone()">Add</button>
+            </div>
+        </div>
+
+        <!-- Clocks Grid -->
+        <div class="clocks-grid" id="clocksGrid">
+            <!-- Clock cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Digital Clock. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
